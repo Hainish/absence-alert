@@ -4,10 +4,24 @@ db:
     POSTGRES_PASSWORD: changeme
     POSTGRES_USER: absencealert
 
+testdb:
+  image: postgres 
+  environment:
+    POSTGRES_PASSWORD: changeme
+    POSTGRES_USER: absencealert
+
+proddb:
+  image: postgres 
+  environment:
+    POSTGRES_PASSWORD: changeme
+    POSTGRES_USER: absencealert
+
 app:
   build: .
   links:
     - db:db
+    - testdb:testdb
+    - proddb:proddb
   ports:
     - 3000:3000
   volumes:
