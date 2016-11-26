@@ -4,8 +4,8 @@
   <h1>
     <%= @message_category.title %>
   </h1>
-  <h2> Send at: <%= @message_category.send_at %> </h2>
-  <h2> Severity: <%= @message_category.severity_label %> </h2>
+  <p> Send at: <%= @message_category.send_at %> </p>
+  <p> Severity: <%= @message_category.severity_label %> </p>
 
   <%= render 'messages', messages: @message_category.messages %>
 

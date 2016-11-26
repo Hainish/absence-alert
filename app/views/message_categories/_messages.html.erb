@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th> Title </th>
+      <th> Active? </th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
     <% messages.each do |message| %>
       <tr>
         <td><%= link_to message.title, message %> </td>
+        <td><%= message.active %>
         <td><%= link_to 'Edit', edit_message_path(message) %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -21,4 +23,4 @@
 
 <br>
 
-<%= button_to 'Create New Message', new_message_path, :method => "get" %>
+<%= button_to 'Create New Message', new_message_path, :method => "get", class: "btn btn-primary" %>
