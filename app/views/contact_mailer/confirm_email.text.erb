@@ -1,0 +1,13 @@
+Hello,
+
+Someone with the email address `<%= @user_email %>` has requested that you be added to their contact list on Absence Alert. Being a contact for `<%= @user_email %>` means that you may be notified via email if something unexpected happens and this user becomes unreachable. It's like being an emergency contact for this person.
+
+To confirm, click on this link:
+<%= confirm_contact_url id: @id, confirmation_token: @confirmation_token %>
+
+If you do not wish to be a contact, you can ignore this message or click on this link:
+<%= reject_contact_url id: @id, confirmation_token: @confirmation_token %>
+
+
+Thank you,
+Action Alert
