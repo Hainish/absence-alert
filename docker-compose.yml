@@ -1,0 +1,14 @@
+db:
+  image: postgres 
+  environment:
+    POSTGRES_PASSWORD: changeme
+    POSTGRES_USER: absencealert
+
+app:
+  build: .
+  links:
+    - db:db
+  ports:
+    - 3000:3000
+  volumes:
+    - .:/opt
