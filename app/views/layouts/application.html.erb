@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Absence Alert</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Absence Alert</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <button type="button" class="btn btn-default navbar-btn">Sign In</button>
+        </ul>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
