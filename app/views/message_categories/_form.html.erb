@@ -1,0 +1,28 @@
+<%= form_for(message_category) do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %>
+
+  <%= f.label :send_at %>:
+  <%= f.time_select :send_at, {ampm: true} %>
+
+  <%= hidden_field_tag 'user_id', current_user.id  %>
+  
+  <%= f.label :severity %>:
+  <%= f.select(:severity, options_for_select(@severity)) %>
+
+  <% if message_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message_category.errors.count, "error") %> prohibited this message_category from being saved:</h2>
+
+      <ul>
+      <% message_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module MessageCategoriesHelper
+end

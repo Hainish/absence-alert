@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user.id == @message.message_category.user_id %>
+  <h1>
+    <%= @message.title %>
+  </h1>
+  <p>
+    <%= @message.content %>
+  </p>
+
+  <h2> Category: <%= link_to @message.message_category.title, message_category_path(@message.message_category) %> </h2>
+  <h2> Active: <%= @message.active %> </h2>
+
+  <%= link_to 'Edit', edit_message_path(@message) %> |
+  <%= link_to 'Back', message_path %>
+<% else %>
+  <h2> This message does not exist </h2>
+<% end %>

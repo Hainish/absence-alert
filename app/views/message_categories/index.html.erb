@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Send At Time</th>
+      <th>Severity</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @message_categories.each do |message_category| %>
+      <tr>
+        <td><%= link_to message_category.title, message_category %></td>
+        <td><%= message_category.send_at %></td>
+        <td><%= message_category.severity_label %></td>
+        <td><%= link_to 'Edit', edit_message_category_path(message_category) %></td>
+        <td><%= link_to 'Destroy', message_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Message Category', new_message_category_path %>
