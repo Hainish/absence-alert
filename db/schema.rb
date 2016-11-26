@@ -15,9 +15,11 @@ ActiveRecord::Schema.define(version: 20161126194100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "message_severities", force: :cascade do |t|
+  create_table "message_categories", force: :cascade do |t|
     t.string   "title"
     t.time     "send_at"
+    t.integer  "user_id"
+    t.integer  "severity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,7 +27,7 @@ ActiveRecord::Schema.define(version: 20161126194100) do
   create_table "messages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "message_severity_id"
+    t.integer  "message_category_id"
     t.boolean  "active"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false

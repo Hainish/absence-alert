@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user.id == @message_category.user_id %>
+  <h1>
+    <%= @message_category.title %>
+  </h1>
+  <h2> Send at: <%= @message_category.send_at %> </h2>
+  <h2> Severity: <%= @message_category.severity_label %> </h2>
+
+  <%= render 'messages', messages: @message_category.messages %>
+
+  <%= link_to 'Edit', edit_message_category_path(@message_category) %> |
+  <%= link_to 'Back', message_categories_path %>
+<% else %>
+  <h2> This category does not exist </h2>
+<% end %>
