@@ -1,17 +1,17 @@
 db:
-  image: postgres 
+  image: postgres
   environment:
     POSTGRES_PASSWORD: changeme
     POSTGRES_USER: absencealert
 
 testdb:
-  image: postgres 
+  image: postgres
   environment:
     POSTGRES_PASSWORD: changeme
     POSTGRES_USER: absencealert
 
 proddb:
-  image: postgres 
+  image: postgres
   environment:
     POSTGRES_PASSWORD: changeme
     POSTGRES_USER: absencealert
@@ -26,3 +26,6 @@ app:
     - 3000:3000
   volumes:
     - .:/opt
+
+  tty: true
+  stdin_open: true
