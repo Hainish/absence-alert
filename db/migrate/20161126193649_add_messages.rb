@@ -4,7 +4,7 @@ class AddMessages < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :content, :limit => 1000000000
       t.integer :message_category_id
-      t.integer :severity_id
+      t.integer :message_severity_id
 
       t.timestamps
     end
