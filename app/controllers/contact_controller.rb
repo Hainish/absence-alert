@@ -1,36 +1,32 @@
 class ContactController < ApplicationController
   before_action :require_login, except: [:confirm, :reject]
+  before_action :find_contact_confirm_token, only: [:confirm, :reject]
+
+  def index
+    @contacts = current_user.contacts
+  end
 
   def confirm
-    begin
-      @contact = Contact.find params[:id]
-    rescue ActiveRecord::RecordNotFound
-      render "confirmation_failure"
-    end
-
-    if @contact.confirmation_token == params[:confirmation_token]
-      @contact.confirmed = true
-      @contact.save
-      render "confirmation_success"
-    else
-      render "confirmation_failure"
-    end
+    @contact.confirmed = true
+    @contact.save
+    render "confirmation_success"
   end
 
   def reject
+    @contact.rejected = true
+    @contact.save
+    render "confirmation_reject"
+  end
+
+  private
+
+  def find_contact_confirm_token
     begin
       @contact = Contact.find params[:id]
     rescue ActiveRecord::RecordNotFound
-      render "confirmation_failure"
+      return render "confirmation_failure"
     end
 
-    if @contact.confirmation_token == params[:confirmation_token]
-      @contact.rejected = true
-      @contact.save
-      render "confirmation_reject"
-    else
-      render "confirmation_failure"
-    end
-
+    render "confirmation_failure" unless @contact.confirmation_token == params[:confirmation_token]
   end
 end
