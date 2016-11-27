@@ -10,7 +10,7 @@
   <%= render 'messages', messages: @message_category.messages %>
 
   <%= link_to 'Edit', edit_message_category_path(@message_category) %> |
-  <%= link_to 'Back', message_categories_path %>
+  <%= link_to 'Back', :back %>
 <% else %>
   <h2> This category does not exist </h2>
 <% end %>

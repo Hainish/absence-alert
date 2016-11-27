@@ -12,7 +12,7 @@
   <h2> Active: <%= @message.active %> </h2>
 
   <%= link_to 'Edit', edit_message_path(@message) %> |
-  <%= link_to 'Back', message_path %>
+  <%= link_to 'Back', :back %>
 <% else %>
   <h2> This message does not exist </h2>
 <% end %>
