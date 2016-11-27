@@ -9,4 +9,5 @@ Rails.application.routes.draw do
       get 'reject/:confirmation_token', action: :reject, as: :reject
     end
   end
+  resources :users
 end
