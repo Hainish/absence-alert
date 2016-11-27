@@ -1,0 +1,24 @@
+<% if current_user == @user %>
+  <div id="clearance" class="sign-up">
+    <h2><%= t(".title") %></h2>
+
+    <%= form_for @user do |form| %>
+      <div class="text-field">
+        <%= form.label :email %>
+        <%= form.text_field :email, type: 'email' %>
+      </div>
+
+      <div class="timezone-field">
+        <%= form.label :time_zone %>
+        <%= form.time_zone_select :time_zone %>
+      </div>
+
+      <div class="submit-field">
+        <%= form.submit %>
+      </div>
+
+    <% end %>
+  </div>
+<% else %>
+  User Not Found
+<% end %>
