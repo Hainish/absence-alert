@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message_categories, only: [:new, :edit]
+
 
   # GET /messages
   # GET /messages.json
@@ -15,7 +17,6 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
-    @message_categories = current_user.message_categories.map{|c| [c.title, c.id.to_s]}
   end
 
   # GET /messages/1/edit
@@ -66,6 +67,10 @@ class MessagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.find(params[:id])
+    end
+
+    def set_message_categories
+      @message_categories = current_user.message_categories.map{|c| [c.title, c.id.to_s]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
