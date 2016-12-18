@@ -1,5 +1,3 @@
-# README
-
 ## Overview
 
 Absence Alert is a [FLOSS][floss] tool that will help vulnerable populations and activists get the word out to their friends and family in case they are arrested or detained. When you sign up for an account, you enter a message to be sent to a list of email addresses. From that moment forward, you'll have to regularly (say, daily) disable that alert from being sent.
@@ -39,7 +37,7 @@ To persist additional gems in your Docker image, after updating the gemfile you 
  ```
 
 
-Possible additions:
+### Possible additions:
 
 * Configuration
 
