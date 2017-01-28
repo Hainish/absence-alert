@@ -9,16 +9,15 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><%= link_to 'Edit Your Profile', edit_user_path(current_user.id), method: :get %></li>
+          <li><%= link_to 'Events', message_categories_path, method: :get %></li>
           <li role="separator" class="divider"></li>
           <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
         </ul>
       </li>
-      
       <% else %>
         <%= button_to 'Sign In', sign_in_path, method: :get, class: "btn btn-default navbar-btn pull-right", form_class: "pull-right" %>
         <%= button_to 'Sign Up', sign_up_path, method: :get, class: "btn btn-default navbar-btn pull-right", form_class: "pull-right" %>
       <% end %>
-
       <div id="flash">
         <% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>
