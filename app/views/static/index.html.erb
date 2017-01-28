@@ -3,6 +3,8 @@
     <h1>Absence Alert</h1>
     <hr class="my-2">
     <p>Explaination here</p>
+    <% if !signed_in? %>
     <p><%= button_to 'Signup Now', sign_up_path, method: :get, class: "btn btn-primary btn-lg" %></p>
+    <% end %>
   </div>
 </div>
