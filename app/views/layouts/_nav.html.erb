@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Absence Alert', root_path, class: "navbar-brand"  %>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
+        Signed in as: <%= current_user.email %>
+        <%= button_to 'Sign Out', sign_out_path, method: :delete, class: "btn btn-default navbar-btn pull-right" %>
+        <%= button_to 'Edit', edit_user_path(current_user.id), method: :get, class: "btn btn-default navbar-btn pull-right" %>
+        <%= button_to 'Events', message_categories_path, method: :get, class: "btn btn-default navbar-btn pull-right" %>
+      <% else %>
+        <%= button_to 'Sign In', sign_in_path, method: :get, class: "btn btn-default navbar-btn pull-right", form_class: "pull-right" %>
+        <%= button_to 'Sign Up', sign_up_path, method: :get, class: "btn btn-default navbar-btn pull-right", form_class: "pull-right" %>
+      <% end %>
+
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+
+    </ul>
+  </div>
+</nav>
