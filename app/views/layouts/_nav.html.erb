@@ -10,6 +10,7 @@
         <ul class="dropdown-menu">
           <li><%= link_to 'Edit Your Profile', edit_user_path(current_user.id), method: :get %></li>
           <li><%= link_to 'Events', message_categories_path, method: :get %></li>
+          <li><%= link_to 'Contacts', contacts_path, method: :get %></li>
           <li role="separator" class="divider"></li>
           <li><%= link_to 'Sign Out', sign_out_path, method: :delete %></li>
         </ul>
@@ -23,7 +24,6 @@
           <div class="flash <%= key %>"><%= value %></div>
         <% end %>
       </div>
-
     </ul>
   </div>
 </nav>
