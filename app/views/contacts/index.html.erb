@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th>Confirmed</th>
-      <th>Rejected</th>
+      <th>Status</th>
       <th></th>
     </tr>
   </thead>
@@ -16,8 +15,15 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.email %></td>
-        <td><%= contact.confirmed %></td>
-        <td><%= contact.rejected %></td>
+        <td>
+          <% if contact.confirmed %>
+            <span class="glyphicon glyphicon-ok-circle"></span> Confirmed
+          <% elsif contact.rejected %>
+            <span class="glyphicon glyphicon-ban-circle"></span> Rejected
+          <% else %>
+            <span class="glyphicon glyphicon-question-sign"></span> Waiting for confirmation
+          <% end %>
+        </td>
         <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
